@@ -1,0 +1,8 @@
+Django
+Pillow
+razorpay
+python-dotenv
+dj-database-url
+psycopg[binary]
+gunicorn
+whitenoise

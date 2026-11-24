@@ -1,0 +1,42 @@
+
+{% extends 'store/base.html' %}
+
+{% block content %}
+
+<section class="page-container">
+
+    <h1>My Orders</h1>
+
+    {% for order in orders %}
+
+        <div class="cart-item">
+
+            <div>
+                <h3>Order #{{ order.id }}</h3>
+
+                <p>₹{{ order.total_price }}</p>
+
+                <p>Date: {{ order.created_at }}</p>
+
+                <p>Status: {{ order.get_status_display }}</p>
+            </div>
+
+            <div>
+                {% for item in order.items.all %}
+                    <p>
+                        {{ item.product.name }} × {{ item.quantity }}
+                    </p>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <p>You haven't placed any orders yet.</p>
+
+    {% endfor %}
+
+</section>
+
+{% endblock %}

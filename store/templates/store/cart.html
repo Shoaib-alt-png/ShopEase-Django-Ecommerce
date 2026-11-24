@@ -1,0 +1,36 @@
+{% extends 'store/base.html' %}
+{% block title %}Shopping Cart | ShopEase{% endblock %}
+{% block content %}
+<section class="cart-page">
+
+    <h1>🛒 My Shopping Cart</h1>
+
+    <p class="cart-subtitle">
+        Review your selected products before checkout.
+    </p>
+
+    <!-- CART PRODUCTS -->
+    <div id="cart-items" class="cart-items">
+        Loading your cart...
+    </div>
+
+    <!-- TOTAL -->
+    <div class="cart-summary">
+        <h2>Order Summary</h2>
+        <h3>
+            Total Amount:
+            ₹<span id="cart-total">0.00</span>
+        </h3>
+        <a href="{% url 'checkout' %}"
+           id="checkout-link"
+           class="btn checkout-btn"
+           hidden>
+            Proceed to Checkout
+        </a>
+        <br><br>
+        <a href="{% url 'home' %}" class="continue-shopping">
+            ← Continue Shopping
+        </a>
+    </div>
+</section>
+{% endblock %}

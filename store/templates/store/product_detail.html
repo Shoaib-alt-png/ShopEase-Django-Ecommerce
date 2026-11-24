@@ -1,0 +1,40 @@
+
+{% extends 'store/base.html' %}
+
+{% block title %}{{ product.name }} | ShopEase{% endblock %}
+
+{% block content %}
+
+<section class="product-detail">
+
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    {% endif %}
+
+    <div>
+        <h1>{{ product.name }}</h1>
+
+        <p>{{ product.description }}</p>
+
+        <h2>₹{{ product.price }}</h2>
+
+        <p>Category: {{ product.category }}</p>
+
+        <p>Available stock: {{ product.stock }}</p>
+
+        <button
+            class="btn add-cart"
+            data-id="{{ product.id }}"
+            data-name="{{ product.name }}"
+            data-price="{{ product.price }}"
+            data-stock="{{ product.stock }}"
+            {% if product.stock == 0 %}disabled{% endif %}
+        >
+            Add to Cart
+        </button>
+
+    </div>
+
+</section>
+
+{% endblock %}
